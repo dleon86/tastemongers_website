@@ -1,4 +1,4 @@
-import pool from '../lib/db';
+import { sql } from '../lib/db';
 import Link from 'next/link';
 
 interface BlogPost {
@@ -14,12 +14,40 @@ export default async function BlogPage({ params }: { params: { page?: string } }
   const postsPerPage = 5;
   const offset = (page - 1) * postsPerPage;
 
-  const { rows: posts } = await pool.query<BlogPost>(`
+  // Use the Neon serverless driver with tagged template literals
+  const posts = await sql`
     SELECT id, title, content, affiliate_link, created_at 
     FROM blog_posts 
     ORDER BY created_at DESC
-    LIMIT $1 OFFSET $2
-  `, [postsPerPage, offset]);
+    LIMIT ${postsPerPage} OFFSET ${offset}
+  ` as BlogPost[];
+
+  // Handle the case when no posts exist yet
+  if (!posts || posts.length === 0) {
+    return (
+      <div className="relative isolate min-h-screen">
+        <div
+          style={{ backgroundImage: "url('/images/blog/taste-cheesecellar-wide-fullspread-3x1-v1.png')" }}
+          className="absolute inset-0 -z-10 bg-cover bg-center bg-fixed"
+          aria-hidden="true"
+        ></div>
+        <div className="absolute inset-0 -z-10 bg-black/30 dark:bg-black/50"></div>
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <div className="space-y-12">
+            <section className="text-center mb-12">
+              <h1 className="text-4xl font-bold mb-4 text-white drop-shadow-lg">The TasteMongers Blog</h1>
+              <p className="text-xl text-white drop-shadow-md">
+                Expert insights, reviews, and stories about artisanal foods
+              </p>
+            </section>
+            <div className="bg-card-bg opacity-90 rounded-lg shadow-md p-8">
+              <p className="text-foreground">No blog posts yet. Check back soon!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const latestPost = posts[0];
   const olderPosts = posts.slice(1);

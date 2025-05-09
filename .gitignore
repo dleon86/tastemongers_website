@@ -33,12 +33,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Data files
-data/cheese_photos.json
-data/cheese_photos.json.bak
-public/images/cheeses
-data/temp.md
-
 # System files
 .DS_Store
 *.pem

@@ -1,4 +1,4 @@
-import pool from '@/lib/db'; // Use path alias
+import { sql } from '@/lib/db'; // Use path alias
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -26,20 +26,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   try {
-    // Fetch the blog post data
-    const { rows } = await pool.query<BlogPost>(
-      `SELECT id, title, content, affiliate_link, created_at 
-       FROM blog_posts 
-       WHERE id = $1`,
-      [id]
-    );
+    // Fetch the blog post data using the Neon serverless driver
+    const posts = await sql`
+      SELECT id, title, content, affiliate_link, created_at 
+      FROM blog_posts 
+      WHERE id = ${id}
+    `;
 
     // If no post is found, show 404
-    if (rows.length === 0) {
+    if (!posts || posts.length === 0) {
       return notFound();
     }
 
-    const post = rows[0];
+    const post = posts[0] as BlogPost;
 
     return (
       <div className="max-w-4xl mx-auto p-4">
