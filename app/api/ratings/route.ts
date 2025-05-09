@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
-import pool from '../../lib/db';
+import { sql } from '../../lib/db';
 
 export async function GET() {
   try {
     // Updated query to aggregate affiliate links into affiliate_options array
-    const query = `
+    // This query can be used directly with the neon/serverless sql tagged template
+    const rows = await sql`
       SELECT 
         r.*,
         CASE
@@ -27,8 +28,6 @@ export async function GET() {
       ORDER BY r.overall_rating DESC
     `;
     
-    const { rows } = await pool.query(query);
-
     return NextResponse.json(rows);
   } catch (error) {
     console.error('Error fetching ratings:', error);

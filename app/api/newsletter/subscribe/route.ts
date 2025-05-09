@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import pool from '../../../lib/db';
+import { sql } from '../../../lib/db';
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,12 +13,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Insert subscriber
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const result = await pool.query(
-      'INSERT INTO newsletter_subscribers (email, subscribed_at, is_subscribed) VALUES ($1, NOW(), true) RETURNING id',
-      [email]
-    );
+    // Insert subscriber using neon/serverless
+    // The sql function is a tagged template literal
+    const result = await sql`
+      INSERT INTO newsletter_subscribers (email, subscribed_at, is_subscribed) 
+      VALUES (${email}, NOW(), true) 
+      RETURNING id
+    `;
 
     // TODO: Add integration with HighLevel here
 

@@ -18,15 +18,16 @@
     "cleanup": "npx tsx scripts/cleanupAfterMigration.mts"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.0",
     "@types/pg": "^8.11.10",
+    "axios": "^1.7.7",
     "dotenv": "^16.4.7",
     "next": "15.1.6",
     "pg": "^8.13.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
-    "ts-node": "^10.9.2",
-    "axios": "^1.7.7"
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

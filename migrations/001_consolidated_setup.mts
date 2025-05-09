@@ -9,15 +9,24 @@ import fs from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load environment variables from .env (relative to the project root)
+// Load environment variables from .env (relative to the project root for fallback)
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
+// Determine connection string: Prioritize Vercel's non-pooling URL, then general Vercel URL, then fallback to .env specifics
+const connectionString = process.env.POSTGRES_URL_NON_POOLING || 
+                         process.env.POSTGRES_URL || 
+                         (process.env.DB_USER ? `postgresql://${process.env.DB_USER}:${String(process.env.DB_PASSWORD)}@${process.env.DB_HOST}:${parseInt(process.env.DB_PORT || '5432')}/${process.env.DB_NAME}` : undefined);
+
+if (!connectionString) {
+  console.error("Database connection string could not be determined. Ensure POSTGRES_URL_NON_POOLING, POSTGRES_URL, or DB_USER, DB_PASSWORD, etc. are set.");
+  process.exit(1);
+}
+
 const client = new Client({
-  user: process.env.DB_USER,
-  password: String(process.env.DB_PASSWORD),
-  host: process.env.DB_HOST,
-  port: parseInt(process.env.DB_PORT || '5432'),
-  database: process.env.DB_NAME,
+  connectionString: connectionString,
+  ssl: {
+    rejectUnauthorized: false // This allows self-signed certs and is typical for development
+  }
 });
 
 /**
