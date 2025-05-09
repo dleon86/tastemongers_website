@@ -1,5 +1,6 @@
 'use client';
 
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useCallback } from 'react';
 import InlineRatingCard from './InlineRatingCard';
 

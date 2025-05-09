@@ -10,7 +10,13 @@ interface BlogPost {
   created_at: string;
 }
 
-export default async function BlogPostPage({ params }: { params: { id: string } }) {
+type BlogPostParams = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function BlogPostPage({ params }: BlogPostParams) {
   // Validate the ID parameter
   const id = parseInt(params.id);
   if (isNaN(id)) {
