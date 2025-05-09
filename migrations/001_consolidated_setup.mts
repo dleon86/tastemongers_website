@@ -292,7 +292,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
 
     for (const r of ratings) {
       // Get the image URL directly from the map instead of generating it
-      const imageUrl = cheeseImageMap[r.name] || '';
+      const imageUrl = cheeseImageMap[r.name as keyof typeof cheeseImageMap] || '';
 
       await client.query(`
         INSERT INTO expert_food_ratings 
