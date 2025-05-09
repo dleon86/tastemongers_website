@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Navigation from './components/layout/Navigation'
 import NewsletterPopup from './components/ui/NewsletterPopup'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -58,9 +59,9 @@ export default function RootLayout({
               <div>
                 <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
                 <ul className="space-y-2">
-                  <li><a href="/blog" className="footer-link">Blog</a></li>
-                  <li><a href="/ratings" className="footer-link">Ratings</a></li>
-                  <li><a href="/about" className="footer-link">About</a></li>
+                  <li><Link href="/blog" className="footer-link">Blog</Link></li>
+                  <li><Link href="/ratings" className="footer-link">Ratings</Link></li>
+                  <li><Link href="/about" className="footer-link">About</Link></li>
                   <li><a href="https://axiomatiqai.com/privacy" className="footer-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
                   <li><a href="https://axiomatiqai.com/tc" className="footer-link" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
                 </ul>

@@ -67,6 +67,7 @@ export default function InlineRatingCard({ rating, onClose, renderStars, onNavig
   };
   
   // Close when clicking outside the card
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       onClose();

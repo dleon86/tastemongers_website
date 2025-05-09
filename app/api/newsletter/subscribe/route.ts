@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert subscriber
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const result = await pool.query(
       'INSERT INTO newsletter_subscribers (email, subscribed_at, is_subscribed) VALUES ($1, NOW(), true) RETURNING id',
       [email]

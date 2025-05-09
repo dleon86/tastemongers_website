@@ -38,6 +38,7 @@ export default function NewsletterPopup() {
 
       setIsSubmitted(true);
       setEmail('');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError('Failed to subscribe. Please try again.');
     }
