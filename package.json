@@ -1,0 +1,42 @@
+{
+  "name": "tastemongers",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "migrate": "npx tsx migrations/001_consolidated_setup.mts",
+    "migrate:drop": "npx tsx migrations/001_consolidated_setup.mts --drop",
+    "copy:photos": "npx tsx scripts/copyCheesePhotos.mts",
+    "deploy": "npx tsx scripts/deploy.mts",
+    "deploy:reset": "npx tsx scripts/deploy.mts --drop",
+    "db:reset": "npx tsx migrations/reset.mts --confirm",
+    "help": "npx tsx scripts/help.mts",
+    "cleanup": "npx tsx scripts/cleanupAfterMigration.mts"
+  },
+  "dependencies": {
+    "@types/pg": "^8.11.10",
+    "dotenv": "^16.4.7",
+    "next": "15.1.6",
+    "pg": "^8.13.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "ts-node": "^10.9.2",
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20.17.15",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.3"
+  }
+}
