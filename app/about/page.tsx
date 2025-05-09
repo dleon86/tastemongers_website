@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import NewsletterButton from '../components/ui/NewsletterButton';
 
 export default function AboutPage() {
