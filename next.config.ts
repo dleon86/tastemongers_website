@@ -1,10 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Use standard page extensions but we'll rely on the App Router
-  swcMinify: true,
+  // Use the App Router architecture
   reactStrictMode: true,
-  // Routes will come from the app directory
+  // Custom output directory
   distDir: 'dist'
 };
 
