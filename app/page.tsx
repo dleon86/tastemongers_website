@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import pool from './lib/db';
 
 export default function Home() {
   return (
@@ -32,9 +31,9 @@ export default function Home() {
               <p className="text-foreground mb-4">
                 Read our newest articles on artisanal foods, production methods, and tasting experiences.
               </p>
-              <a href="/blog" className="text-primary hover:text-primary-dark font-semibold transition-colors">
+              <Link href="/blog" className="text-primary hover:text-primary-dark font-semibold transition-colors">
                 Read More →
-              </a>
+              </Link>
             </div>
 
             <div className="bg-card-bg opacity-90 rounded-lg shadow-md p-6">
@@ -42,9 +41,9 @@ export default function Home() {
               <p className="text-foreground mb-4">
                 Browse our comprehensive database of expert food ratings and recommendations.
               </p>
-              <a href="/ratings" className="text-primary hover:text-primary-dark font-semibold transition-colors">
+              <Link href="/ratings" className="text-primary hover:text-primary-dark font-semibold transition-colors">
                 View Ratings →
-              </a>
+              </Link>
             </div>
 
             <div className="bg-card-bg opacity-90 rounded-lg shadow-md p-6">
@@ -52,9 +51,9 @@ export default function Home() {
               <p className="text-foreground mb-4">
                 Discover perfect pairings and elevate your culinary experience.
               </p>
-              <a href="/pairings" className="text-primary hover:text-primary-dark font-semibold transition-colors">
+              <Link href="/pairings" className="text-primary hover:text-primary-dark font-semibold transition-colors">
                 Learn More →
-              </a>
+              </Link>
             </div>
           </section>
 
@@ -66,9 +65,9 @@ export default function Home() {
               <p className="text-foreground mb-4">
                 Discover the rich history and craftsmanship behind French cheese-making, from the caves of Roquefort to the pastures of Normandy...
               </p>
-              <a href="/blog/1" className="text-primary hover:text-primary-dark font-semibold transition-colors">
+              <Link href="/blog/1" className="text-primary hover:text-primary-dark font-semibold transition-colors">
                 Read Full Article →
-              </a>
+              </Link>
             </div>
           </section>
         </div>
