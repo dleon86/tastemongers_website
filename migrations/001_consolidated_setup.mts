@@ -396,7 +396,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
       
         <figure class="my-8">
           <img src="/images/blog/french-cheese-map.jpg" alt="Map of French cheese regions" class="rounded-lg shadow-md w-full" />
-          <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">The diverse regions of France, each with distinct cheese-making traditions shaped by local geography, climate, and cultural practices.</figcaption>
+          <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">The diverse regions of France, each with distinct cheese-making traditions shaped by local geography, climate, and cultural practices. Map source: <a href="https://commons.wikimedia.org/wiki/File:Principales_AOC_France.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. License: <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></figcaption>
         </figure>
       
         <h2>A Cultural Heritage Protected by Law</h2>
@@ -408,7 +408,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Each French region expresses its distinct character through its signature cheeses. In Normandy, the lush, rainy landscape with its rich grasslands produces exceptional dairy, yielding creamy masterpieces like Camembert, Pont-l'Évêque, and Livarot. These soft, bloomy-rind and washed-rind varieties showcase the region's fertile terroir and ancient monastic cheese-making traditions.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/camembert-production.jpg" alt="Traditional Camembert production" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/camembert-production.png" alt="Traditional Camembert production" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">Artisans ladling curds into molds by hand at a traditional Camembert production facility in Normandy, preserving centuries-old techniques.</figcaption>
         </figure>
       
@@ -422,7 +422,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Munster, developed by Benedictine monks in the Vosges Mountains, exemplifies this monastic influence. Its distinctive orange rind and powerful aroma result from regular washing with brine during aging—a technique perfected by monks to extend shelf life while creating complex flavors. Similarly, the Cistercian order developed Cîteaux, while Trappist monks created Port-Salut, demonstrating how religious communities shaped France's cheese landscape.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/monastery-aging-cellar.jpg" alt="Monastery aging cellar" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/monastery-aging-cellar.png" alt="Monastery aging cellar" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">Ancient stone aging cellar beneath a French monastery, where generations of monks have perfected the art of cheese aging for centuries.</figcaption>
         </figure>
       
@@ -460,7 +460,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Affineurs must understand each cheese's unique development cycle, intervening at critical moments to wash rinds, turn wheels, or adjust conditions. Consider Comté, which matures for 8-36 months under expert supervision. During this time, affineurs regularly test, clean, and rotate each massive wheel, ensuring even aging as enzymes slowly break down proteins and fats, developing the cheese's prized crystalline texture and complex flavor profile.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/comte-aging-cellar.jpg" alt="Comté aging cellar" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/comte-aging-cellar.png" alt="Comté aging cellar" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">Rows of Comté wheels aging in a traditional cellar, where each 80-pound wheel will be regularly turned and monitored for proper development during its many months of maturation.</figcaption>
         </figure>
       
@@ -480,7 +480,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Organizations like Slow Food and governmental initiatives help document and protect endangered cheese varieties. Meanwhile, a new generation of artisans combines respect for tradition with contemporary innovation, ensuring that French cheese culture remains vibrant rather than becoming a museum piece.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/young-cheesemakers.jpg" alt="Young cheesemakers learning traditional methods" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/young-cheesemakers.png" alt="Young cheesemakers learning traditional methods" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">A new generation of French cheesemakers learning traditional techniques from master artisans, ensuring these ancient crafts continue into the future.</figcaption>
         </figure>
       
