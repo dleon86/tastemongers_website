@@ -202,6 +202,9 @@ export default function InlineRatingCard({ rating, onClose, renderStars, onNavig
                   Buy {option.weight}{option.unit}
                 </span>
               </a>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+                As an Amazon Associate I earn from qualifying purchases.
+              </p>
             </div>
           ))}
         </div>

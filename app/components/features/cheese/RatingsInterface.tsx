@@ -150,9 +150,9 @@ export default function RatingsInterface() {
   return (
     <div className="space-y-8">
       {/* Filters Section - NO LONGER STICKY */}
-      <div className="bg-background pt-8 pb-4">
+      <div className="bg-background rounded-lg opacity-95">
         {/* Filters Section */}
-        <div className="bg-background rounded-lg shadow-md p-6 border border-foreground/10">
+        <div className="bg-background rounded-lg shadow-md p-4 border border-foreground/10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-bold text-foreground">Filter & Sort</h2>
             <button 
@@ -328,7 +328,7 @@ export default function RatingsInterface() {
       </div>
 
       {/* Results Count */}
-      <div className="text-foreground text-sm mb-2">
+      <div className="text-white font-medium text-sm mb-4 p-2 inline-block rounded drop-shadow-md">
         Showing {filteredRatings.length} of {ratings.length} items
       </div>
       
