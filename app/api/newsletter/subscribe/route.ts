@@ -3,7 +3,7 @@ import { sql } from '@/lib/db';
 
 export async function POST(request: NextRequest) {
   try {
-    const { email } = await request.json();
+    const { email, firstName, lastName } = await request.json();
 
     // Validate email
     if (!email || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
@@ -13,11 +13,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Optionally validate firstName/lastName (e.g., not required, but can check length)
+
     // Insert subscriber using neon/serverless
-    // The sql function is a tagged template literal
     const result = await sql`
-      INSERT INTO newsletter_subscribers (email, subscribed_at, is_subscribed) 
-      VALUES (${email}, NOW(), true) 
+      INSERT INTO newsletter_subscribers (email, first_name, last_name, subscribed_at, is_subscribed) 
+      VALUES (${email}, ${firstName || null}, ${lastName || null}, NOW(), true) 
       RETURNING id
     `;
 

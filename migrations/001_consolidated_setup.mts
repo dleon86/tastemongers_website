@@ -92,6 +92,8 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
       CREATE TABLE IF NOT EXISTS newsletter_subscribers (
         id SERIAL PRIMARY KEY,
         email VARCHAR(255) UNIQUE NOT NULL,
+        first_name VARCHAR(100),
+        last_name VARCHAR(100),
         subscribed_at TIMESTAMP DEFAULT NOW(),
         is_subscribed BOOLEAN DEFAULT TRUE
       );
@@ -395,7 +397,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>France's cheese-making tradition spans over a thousand years, representing one of the world's most significant gastronomic legacies. With over 1,000 distinct varieties—from firm mountain cheeses to delicate bloomy rinds—French cheese embodies the nation's dedication to terroir and craftsmanship. These diverse creations reflect France's varied landscapes: from the lush pastures of Normandy to the rugged peaks of the Pyrenees, each region has developed distinctive styles that honor local resources and cultural heritage.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/french-cheese-map.jpg" alt="Map of French cheese regions" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/1/french-cheese-map.jpg" alt="Map of French cheese regions" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">The diverse regions of France, each with distinct cheese-making traditions shaped by local geography, climate, and cultural practices. Map source: <a href="https://commons.wikimedia.org/wiki/File:Principales_AOC_France.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. License: <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></figcaption>
         </figure>
       
@@ -408,7 +410,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Each French region expresses its distinct character through its signature cheeses. In Normandy, the lush, rainy landscape with its rich grasslands produces exceptional dairy, yielding creamy masterpieces like Camembert, Pont-l'Évêque, and Livarot. These soft, bloomy-rind and washed-rind varieties showcase the region's fertile terroir and ancient monastic cheese-making traditions.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/camembert-production.png" alt="Traditional Camembert production" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/1/camembert-production.png" alt="Traditional Camembert production" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">Artisans ladling curds into molds by hand at a traditional Camembert production facility in Normandy, preserving centuries-old techniques.</figcaption>
         </figure>
       
@@ -422,7 +424,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Munster, developed by Benedictine monks in the Vosges Mountains, exemplifies this monastic influence. Its distinctive orange rind and powerful aroma result from regular washing with brine during aging—a technique perfected by monks to extend shelf life while creating complex flavors. Similarly, the Cistercian order developed Cîteaux, while Trappist monks created Port-Salut, demonstrating how religious communities shaped France's cheese landscape.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/monastery-aging-cellar.png" alt="Monastery aging cellar" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/1/monastery-aging-cellar.png" alt="Monastery aging cellar" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">Ancient stone aging cellar beneath a French monastery, where generations of monks have perfected the art of cheese aging for centuries.</figcaption>
         </figure>
       
@@ -441,7 +443,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Characterized by bloomy white rinds covering creamy interiors, Brie and Camembert epitomize this category. Their development involves surface-ripening, where molds break down proteins and fats from the outside in, creating increasingly complex flavors and textures as they age.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/brie-de-meaux-wheel.jpg" alt="Wheel of Brie de Meaux" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/1/brie-de-meaux-wheel.jpg" alt="Wheel of Brie de Meaux" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">A perfectly ripened wheel of Brie de Meaux, showcasing its characteristic bloomy white rind and creamy interior that flows at the peak of ripeness.</figcaption>
         </figure>
       
@@ -460,7 +462,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Affineurs must understand each cheese's unique development cycle, intervening at critical moments to wash rinds, turn wheels, or adjust conditions. Consider Comté, which matures for 8-36 months under expert supervision. During this time, affineurs regularly test, clean, and rotate each massive wheel, ensuring even aging as enzymes slowly break down proteins and fats, developing the cheese's prized crystalline texture and complex flavor profile.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/comte-aging-cellar.png" alt="Comté aging cellar" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/1/comte-aging-cellar.png" alt="Comté aging cellar" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">Rows of Comté wheels aging in a traditional cellar, where each 80-pound wheel will be regularly turned and monitored for proper development during its many months of maturation.</figcaption>
         </figure>
       
@@ -480,7 +482,7 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
         <p>Organizations like Slow Food and governmental initiatives help document and protect endangered cheese varieties. Meanwhile, a new generation of artisans combines respect for tradition with contemporary innovation, ensuring that French cheese culture remains vibrant rather than becoming a museum piece.</p>
       
         <figure class="my-8">
-          <img src="/images/blog/young-cheesemakers.png" alt="Young cheesemakers learning traditional methods" class="rounded-lg shadow-md w-full" />
+          <img src="/images/blog/1/young-cheesemakers.png" alt="Young cheesemakers learning traditional methods" class="rounded-lg shadow-md w-full" />
           <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">A new generation of French cheesemakers learning traditional techniques from master artisans, ensuring these ancient crafts continue into the future.</figcaption>
         </figure>
       
@@ -505,6 +507,11 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
           <li><strong>Time-Honored Aging:</strong> Aged 6-24 months, developing from mild caramel notes to intense savory complexity</li>
         </ul>
       
+        <figure class="my-8">
+          <img src="/images/blog/2/mimolette.jpg" alt="Mimolette" class="rounded-lg shadow-md w-full" />
+          <figcaption class="text-sm text-center mt-2 text-footer-text-secondary">Mimolette cheese with its characteristic pocked surface.</figcaption>
+        </figure>
+
         <h2>Why Cheese Connoisseurs Covet Mimolette</h2>
         <div class="rating-grid">
           <div>Flavor Intensity <span class="rating">8/10</span></div>
@@ -576,7 +583,57 @@ async function runConsolidatedMigration(shouldDrop: boolean = false) {
       }
     }
     console.log(`Added ${blogPosts.length} initial blog posts`);
+
+
+    // 1. Get the post ID for the French cheese blog post
+    const { rows: posts } = await client.query(`
+      SELECT id FROM blog_posts 
+      WHERE title = 'The Art of French Cheese: A Journey Through Tradition'
+    `);
+
+    if (posts.length === 0) {
+      throw new Error("French cheese blog post not found");
+    }
+
+    const postId = posts[0].id;
+    console.log(`Found French cheese blog post with ID: ${postId}`);
+
+    // 2. Update the blog post to have an affiliate_link directly
+    await client.query(`
+      UPDATE blog_posts 
+      SET affiliate_link = $1, updated_at = NOW()
+      WHERE id = $2
+    `, [
+      'https://amzn.to/4m1Or9V',
+      postId
+    ]);
     
+    console.log('Updated blog post with direct affiliate link');
+
+    // 3. Replace the existing post_affiliate_link with a new one matching the Mimolette format
+    // First remove any existing links
+    await client.query(`
+      DELETE FROM post_affiliate_links 
+      WHERE post_id = $1 AND label = 'Buy Camembert de Normandie'
+    `, [postId]);
+
+    // Then add the new link with the same format as Mimolette
+    await client.query(`
+      INSERT INTO post_affiliate_links 
+        (post_id, label, url, price, weight, unit, created_at, updated_at)
+      VALUES 
+        ($1, 'Buy Camembert Cheese', $2, $3, $4, $5, NOW(), NOW())
+    `, [
+      postId,
+      'https://amzn.to/4m1Or9V',
+      61.90,
+      0.55,
+      'lb'
+    ]);
+    
+    console.log('Added new Camembert affiliate link with consistent format');
+
+
     // Commit the transaction
     await client.query('COMMIT');
     console.log('Migration completed successfully');

@@ -10,6 +10,8 @@ export interface BlogPost {
 export interface NewsletterSubscriber {
   id: number;
   email: string;
+  firstName?: string;
+  lastName?: string;
   subscribedAt: Date;
   isSubscribed: boolean;
 } 

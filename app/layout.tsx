@@ -5,6 +5,7 @@ import Navigation from './components/layout/Navigation'
 import NewsletterPopup from './components/ui/NewsletterPopup'
 import Image from 'next/image'
 import Link from 'next/link'
+import NewsletterButton from './components/ui/NewsletterButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,6 +35,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXBK98LK2Z"></script>
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SXBK98LK2Z');
+        ` }} />
+      </head>
       <body className={inter.className}>
         <Navigation />
         <main className="min-h-screen bg-background">
@@ -69,6 +80,9 @@ export default function RootLayout({
               <div>
                 <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
                 <p className="text-footer-text-secondary">Subscribe to get the latest updates and recommendations.</p>
+                <div className="mt-4 flex justify-center">
+                  <NewsletterButton />
+                </div>
               </div>
             </div>
             <div className="text-center text-footer-text-secondary text-sm">
